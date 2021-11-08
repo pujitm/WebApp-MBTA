@@ -10,3 +10,7 @@ it's way better to do some data pre-processing to make things efficient.
 
 hence the static json files
 more memory on server is cheaper than bandwidth (in most cases)
+
+## Part 2
+
+`FLASK_APP=mbta flask run`

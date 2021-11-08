@@ -87,16 +87,20 @@ def find_stop_near(place_name, stop_collections):
     )
 
 
+def get_stop_collections():
+    from_filename = "filtered_mbta_stop_data.json"
+    with open(from_filename) as stop_data_file:
+        stops = json.load(stop_data_file)
+        return prepare_mbta_stop_data(stops=stops)
+
+
 def main():
     """
     You can test all the functions here
     """
-    from_filename = "filtered_mbta_stop_data.json"
-    with open(from_filename) as stop_data_file:
-        stops = json.load(stop_data_file)
-        collections = prepare_mbta_stop_data(stops=stops)
-        print(find_stop_near("Babson College", stop_collections=collections))
-        print(find_stop_near("Boston", stop_collections=collections))
+    collections = get_stop_collections()
+    print(find_stop_near("Babson College", stop_collections=collections))
+    print(find_stop_near("Boston", stop_collections=collections))
 
 
 if __name__ == "__main__":

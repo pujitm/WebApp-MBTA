@@ -1,10 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Amazing app to help you find nearest MBTA station</title>
-</head>
-<body>
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+      integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu"
+      crossorigin="anonymous"
+    />
 
-</body>
+    <!-- Optional theme -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css"
+      integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ"
+      crossorigin="anonymous"
+    />
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+      integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!-- https://bootsnipp.com/forms -->
+    <form class="form-horizontal" method="post" action="/nearest_station">
+      <fieldset>
+        <!-- Form Name -->
+        <div class="text-center">
+          {% if message %}
+          <legend>{{ message }}</legend>
+          {% else %}
+          <legend>Amazing app to help you find nearest MBTA station</legend>
+          {% endif %}
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="place"
+            >Find the nearest MBTA station to:</label
+          >
+          <div class="col-md-4">
+            <input
+              id="place"
+              name="place"
+              type="text"
+              placeholder="Babson College"
+              class="form-control input-md"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- Button -->
+        <div class="form-group">
+          <label
+            class="col-md-4 control-label"
+            for="findNearestStation"
+          ></label>
+          <div class="col-md-4">
+            <button
+              id="findNearestStation"
+              name="findNearestStation"
+              class="btn btn-primary"
+              type="submit"
+            >
+              Find Nearest Station!
+            </button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </body>
 </html>
