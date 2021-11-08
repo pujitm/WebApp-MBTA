@@ -14,3 +14,16 @@ more memory on server is cheaper than bandwidth (in most cases)
 ## Part 2
 
 `FLASK_APP=mbta flask run`
+
+## Part 3: Reflection
+
+Web app to find the nearest MBTA station to a named location.
+
+Process: I didn't really read the entire assignment before doing it (because I'm lazy). Fortunately, very little of my code needed to be changed from pt1 to pt2.
+
+The webapp portion of this is absolute garbage because I would never write a server in flask (and thus wasnt worth the effort), and only ever write it in python if python was really the best way to accomplish server-side tasks, which it only is in niche circumstances.
+
+The most important implementation choices were caching the MBTA stop information and the data structure to query when searching for the nearest station.
+Caching was a pretty obvious choice, as written above, but I was considering a couple of other choices. A tree is the basic progression past brute force, so I used it because it was convenient, and further optimization is overkill. It gets us to logarithmic complexity instead of linear complexity, and that's what's important.
+
+We trade memory/disk space/startup-time for less bandwidth usage, which will be more expensive at smaller scales, but the application will always be highly responsive.
