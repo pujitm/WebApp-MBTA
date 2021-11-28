@@ -2,14 +2,15 @@
 
 This is the base repo for MBTA project. Please read [instructions](instructions.md).
 
-notes on mbta api usage
+notes on mbta api usage/instructions
 
 my first instinct was that making an api call everytime we want to find the nearest station is way overkill because stations dont change all that often.
-then i ran the stops endpoint and got a 10mb response in return, which pissed me off cuz thats poor design
-it's way better to do some data pre-processing to make things efficient.
+then i ran the `stops` endpoint and got a 10mb response in return, which upset me cuz thats poor design.
 
-hence the static json files
-more memory on server is cheaper than bandwidth (in most cases)
+It's way better to do some data pre-processing to make things efficient.
+
+- hence the static json files
+- more memory on server is cheaper than bandwidth (in most cases)
 
 ## Part 2
 
@@ -19,9 +20,7 @@ more memory on server is cheaper than bandwidth (in most cases)
 
 Web app to find the nearest MBTA station to a named location.
 
-Process: I didn't really read the entire assignment before doing it (because I'm lazy). Fortunately, very little of my code needed to be changed from pt1 to pt2.
-
-The webapp portion of this is absolute garbage because I would never write a server in flask (and thus wasnt worth the effort), and only ever write it in python if python was really the best way to accomplish server-side tasks, which it only is in niche circumstances.
+Process: Fortunately, very little of my code needed to be changed from pt1 to pt2.
 
 The most important implementation choices were caching the MBTA stop information and the data structure to query when searching for the nearest station.
 Caching was a pretty obvious choice, as written above, but I was considering a couple of other choices. A tree is the basic progression past brute force, so I used it because it was convenient, and further optimization is overkill. It gets us to logarithmic complexity instead of linear complexity, and that's what's important.
